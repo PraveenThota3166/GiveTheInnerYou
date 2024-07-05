@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('images/retrosupply-jLwVAUtLOAQ-unsplash.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+
+.login_form {
+    background: #dcddbd; /* Semi-transparent white background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login_form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login_form label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.login_form input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login_form button {
+    padding: 15px;
+    background-color: #2d4947;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login_form button:hover {
+    background-color: #779e8c;
+}
+
+.login_form p {
+    margin: 10px 0;
+}
+
+.login_form a {
+    margin-bottom: 10px;
+    color: #779e8c;
+    text-decoration: none;
+}
+
+.login_form a:hover {
+    text-decoration: underline;
+}
+.connect-footer {
+    padding: 20px; /* Padding inside the footer */
+    text-align: center; 
+    left: 0;
+    bottom: 0;
+}

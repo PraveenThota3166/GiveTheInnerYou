@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give The Inner You</title>
+    <link rel="icon" type="image/x-icon" href="../public/images/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+        </style>
+    <script>
+        function showEditForm(index) {
+            document.getElementById('editForm' + index).style.display = 'block';
+        }
+    </script>
+    
+</head>
+<body>
+    <%if(isLogged){%>
+        <div class="name">
+            <h1>Hello <%=nickname%> 😁</h1>
+        <a href="/logout"><button>Logout</button></a>
+        </div>
+        
+    <%}else{%>
+        <div class="login_buttons">
+            <div class="login">
+                <a href="/login"><button>Login</button></a>
+            </div>
+            <div class="register">
+                <a href="/register"><button>Register</button></a>
+            </div>
+        </div>
+    <%}%>
+    <div class="Weather">
+    <% if(city!=""){ %>
+        <p> 🌍 <%= city%> <%= Math.floor(temperature-273)%> °C</p>
+  <%  }else{ %>
+        
+            <form action="/getTemp" method="post">
+                <p>Enter Your City</p>
+                <input type="text" name="city" placeholder="Enter Your City Name">
+                <button type="submit">Submit</button>
+            </form>
+        
+   <% } %>
+</div>
+    
+    <% if (locals.arr1) { %>
+        <% for (let i = 0; i < arr1.length; i++) { %>
+            <div class="post_div">
+                <form action="/delete" method="post">
+                    <p style="margin: 0px;"><%=arr3[i]%></p>
+                    <h5 style="font-size: 2.5rem; margin-top: 10px;"><%= arr1[i] %></h5>
+                    <p><%= arr2[i] %></p>
+                    <input type="hidden" name="index" value="<%= i %>">
+                    <button type="submit">Delete</button>
+                </form>
+                <button onclick="showEditForm(<%= i %>)">Edit</button>
+    
+                    <!-- Edit form -->
+                <form id="editForm<%= i %>" action="/edit" method="post" style="display:none;">
+                    <input type="hidden" name="index" value="<%= i %>">
+                    <label for="title<%= i %>">New Title:</label><br>
+                    <input type="text" name="title" id="title<%= i %>"><br>
+                    <label for="content<%= i %>">New Content:</label>
+                    <textarea type="text" name="content" rows="4" cols="50" id="content<%= i %>" value="<%= arr2[i] %>"></textarea>
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+           
+        <% } %>
+    <% } %>
+    <div class="submit_form">
+        <form action="/submit" method="post">
+            <h2 class="form_heading">Note Your Day</h2><br>
+            <label for="title">Title of the Day</label>
+            <input size="30" class="title_input" type="text" name="title"><br>
+            <label for="content">Drop your Feelings</label>
+            <textarea  name="content" rows="4" cols="50">
+                
+                </textarea>
+            <button type="submit">Add My Day</button>
+        </form>
+    </div>
+    <footer class="connect-footer">
+        <div class="connect">
+            <h5>Connect with me on <a href="https://www.linkedin.com/in/praveen-t-v-n-s-5393ab223/">Linkedin</a></h5>
+            <h5>Email: thotapraveen2004@gmail.com</h5>
+        </div>
+    </footer>
+</body>
+</html>
